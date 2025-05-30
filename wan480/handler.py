@@ -735,9 +735,6 @@ def handler(job):
             #         else:
             #             error_msg = f"Failed to fetch image data for {filename} from /view endpoint."
             #             errors.append(error_msg)
-                print(
-                    f"worker-comfyui - Node {node_id} contains {len(node_output['videos'])} video(s)"
-                )
                 for image_info in node_output["gifs"]:
                     filename = image_info.get("fullpath")
                     # subfolder = image_info.get("subfolder", "")
