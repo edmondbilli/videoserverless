@@ -742,12 +742,14 @@ def handler(job):
 
                     with open(filename, "rb") as f:
                         video_bytes = f.read()
+                    encoded_video = base64.b64encode(video_bytes).decode("utf-8")
 
                     output_data.append(
                         {
                             "filename": filename,
                             "type": img_type,
-                            "data": video_bytes.encode("base64") if isinstance(video_bytes, str) else video_bytes
+                            "encoding": "base64",
+                            "data": encoded_video
                         }
                     ) 
                 print(f"return video successfully")     
