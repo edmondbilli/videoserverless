@@ -1,2 +1,2 @@
-FROM lantuzi/wan480:1.3
+FROM lantuzi/wan480:1.4
 COPY handler.py ./
