@@ -39,6 +39,28 @@ COMFY_HOST = "127.0.0.1:8188"
 # see https://docs.runpod.io/docs/handler-additional-controls#refresh-worker
 REFRESH_WORKER = os.environ.get("REFRESH_WORKER", "false").lower() == "true"
 
+def download_model(MODEL_URL, MODEL_PATH):
+    if os.path.exists(MODEL_PATH):
+        print("Model already exists.")
+        return
+    os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
+    print("Downloading model...")
+    with requests.get(MODEL_URL, stream=True) as r:
+        r.raise_for_status()
+        with open(MODEL_PATH, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
+    print("Download complete.")
+
+download_model("https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_480p_14B_bf16.safetensors", "./comfyui/models/diffusion_models/wan2.1_i2v_480p_14B_bf16.safetensors")
+download_model("https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors","./comfyui/models/clip_vision/clip_vision_h.safetensors")
+download_model("https://huggingface.co/datasets/jibopabo/upscalers/resolve/89f2c89b11084729e995912390f8e2acf1c7b1e8/4xLSDIRDAT.pth","./comfyui/models/upscale_models/4xLSDIRDAT.pth")
+download_model("https://huggingface.co/nguu/film-pytorch/resolve/887b2c42bebcb323baf6c3b6d59304135699b575/film_net_fp32.pt","./comfyui/models/vfi/film_net_fp32.pt")
+
+
+
+
+
 # ---------------------------------------------------------------------------
 # Helper: quick reachability probe of ComfyUI HTTP endpoint (port 8188)
 # ---------------------------------------------------------------------------
