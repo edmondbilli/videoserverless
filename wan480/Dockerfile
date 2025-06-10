@@ -5,5 +5,5 @@ FROM lantuzi/wan480:1.7
 # COPY 4xLSDIR.pth ./comfyui/models/upscale_models/
 # COPY film_net_fp32.pt ./comfyui/models/vfi/
 RUN git clone https://github.com/theUpsider/ComfyUI-Logic.git ./comfyui/custom_nodes/ComfyUI-Logic
-
+RUN git clone https://github.com/chrisgoringe/cg-use-everywhere ./comfyui/custom_nodes/cg-use-everywhere
 COPY handler.py ./
