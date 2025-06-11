@@ -4,6 +4,7 @@ FROM lantuzi/wan480:1.7
 # COPY clip_vision_h.safetensors ./comfyui/models/clip_vision/
 # COPY 4xLSDIR.pth ./comfyui/models/upscale_models/
 # COPY film_net_fp32.pt ./comfyui/models/vfi/
+RUN pip install piexif segment-anything scikit-image opencv-python-headless dill matplotlib transformers scipy>=1.11.4 numpy
 RUN git clone https://github.com/theUpsider/ComfyUI-Logic.git ./comfyui/custom_nodes/ComfyUI-Logic
 RUN git clone https://github.com/chrisgoringe/cg-use-everywhere ./comfyui/custom_nodes/cg-use-everywhere
 RUN git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack ./comfyui/custom_nodes/ComfyUI-Impact-Pack
