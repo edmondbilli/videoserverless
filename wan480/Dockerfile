@@ -9,4 +9,8 @@ RUN uv pip install --system piexif segment-anything scikit-image opencv-python-h
 RUN git clone https://github.com/theUpsider/ComfyUI-Logic.git ./comfyui/custom_nodes/ComfyUI-Logic
 RUN git clone https://github.com/chrisgoringe/cg-use-everywhere ./comfyui/custom_nodes/cg-use-everywhere
 RUN git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack ./comfyui/custom_nodes/ComfyUI-Impact-Pack
+RUN git clone https://github.com/yolain/ComfyUI-Easy-Use ./comfyui/custom_nodes/ComfyUI-Easy-Use
+RUN git clone https://github.com/bentoml/comfy-pack.git ./comfyui/custom_nodes/comfy-pack
+COPY requirements.txt /requirements.txt
+RUN uv pip install --upgrade -r /requirements.txt --no-cache-dir --system
 COPY handler.py ./
