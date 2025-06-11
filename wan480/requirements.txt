@@ -13,3 +13,10 @@ comfy-cli
 duckduckgo-search
 einops >= 0.7.0
 diffusers >= 0.31.0
+opencv-contrib-python
+kornia
+scipy
+Pillow
+torchvision
+tqdm
+cupy-wheel

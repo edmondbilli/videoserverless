@@ -13,6 +13,7 @@ RUN git clone https://github.com/yolain/ComfyUI-Easy-Use ./comfyui/custom_nodes/
 RUN git clone https://github.com/bentoml/comfy-pack.git ./comfyui/custom_nodes/comfy-pack
 RUN git clone https://github.com/M1kep/ComfyLiterals ./comfyui/custom_nodes/ComfyLiterals
 RUN git clone https://github.com/welltop-cn/ComfyUI-TeaCache ./comfyui/custom_nodes/ComfyUI-TeaCache
+RUN git clone https://github.com/Fannovel16/ComfyUI-Frame-Interpolation ./comfyui/custom_nodes/ComfyUI-Frame-Interpolation
 COPY requirements.txt /requirements.txt
 RUN uv pip install --upgrade -r /requirements.txt --no-cache-dir --system
 COPY handler.py ./
