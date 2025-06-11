@@ -11,6 +11,7 @@ RUN git clone https://github.com/chrisgoringe/cg-use-everywhere ./comfyui/custom
 RUN git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack ./comfyui/custom_nodes/ComfyUI-Impact-Pack
 RUN git clone https://github.com/yolain/ComfyUI-Easy-Use ./comfyui/custom_nodes/ComfyUI-Easy-Use
 RUN git clone https://github.com/bentoml/comfy-pack.git ./comfyui/custom_nodes/comfy-pack
+RUN git clone https://github.com/M1kep/ComfyLiterals ./comfyui/custom_nodes/ComfyLiterals
 COPY requirements.txt /requirements.txt
 RUN uv pip install --upgrade -r /requirements.txt --no-cache-dir --system
 COPY handler.py ./
